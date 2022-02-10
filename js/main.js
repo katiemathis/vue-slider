@@ -49,7 +49,7 @@ const app = new Vue (
                 }
             },
            loop () {
-                this.clock = setInterval(this.nextSlide, 2000)
+                this.clock = setInterval(this.nextSlide, 3000)
             },
             stop () {
                 clearInterval(this.clock)
