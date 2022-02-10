@@ -53,6 +53,15 @@ const app = new Vue (
             },
             stop () {
                 clearInterval(this.clock)
+            },
+            //crea una funzione per cliccare sul thumb per vedere una foto in grande
+            thumbClick () {
+                let thumb = document.querySelectorAll(".thumb")
+                let item = document.querySelectorAll(".item")
+                this.thumb[active] == this.item[active]
+                console.log(thumb[active])
+                console.log(item[active])
+
             }
         },
         mounted: function  () {
