@@ -30,6 +30,7 @@ const app = new Vue (
                 }
             ],
             active: 0,
+            clock: ''
 
         },
         methods: {
@@ -40,31 +41,23 @@ const app = new Vue (
                     this.active--
                 }
             },
-
-            nextSlide: function () {
-
-                if (this.active == this.items.length) {
+            nextSlide () {
+                if (this.active == this.items.length - 1) {
                     this.active = 0
                 } else {
                     this.active++
                 }
             },
-
-            scrollaAuto: function () {
-                setTimeout(function () {
-                    if (this.active == this.items.length) {
-                        this.active = 0
-                    } else {
-                        this.active++
-                    }
-                }, 3000)
-            },
-            mounted: function () {
-                this.scrollaAuto ()
-            },
+           loop () {
+                this.clock = setInterval(this.nextSlide, 2000)
+            }
+        },
+        mounted: function  () {
+            this.loop ()
+            
+        },
 
 
-        }
     }
 );
 
@@ -80,74 +73,3 @@ const app = new Vue (
 
 
 
-
-
-
-/*
-
-const itemsRef = document.getElementsByClassName('items')[0];
-const thumbsRef = document.getElementsByClassName('thumbs')[0];
-let item = '';
-let thumb = '';
-let active = 1;
-
-for (let i = 0; i < items.length; i++) {
-    item += `
-        <div class="item">
-            <img src="${items[i].url}" alt="">
-            <div class="text">
-                <h3>${items[i].name}</h3>
-                <p>${items[i].text}</p>
-            </div>
-        </div>`
-    thumb += `
-        <div class="thumb">
-            <img src="${items[i].url}" alt="">
-        </div>
-    `
-}
-
-itemsRef.innerHTML = item;
-document.getElementsByClassName('item')[active].classList.add('active');
-
-thumbsRef.innerHTML += thumb;
-document.getElementsByClassName('thumb')[active].classList.add('active');
-
-const prev = document.querySelector('.prev');
-prev.addEventListener('click', function() {
-    if(active == 0) {
-        active = items.length - 1; 
-
-        document.querySelector('.item.active').classList.remove('active');
-        document.getElementsByClassName('item')[active].classList.add('active');
-
-        document.querySelector('.thumb.active').classList.remove('active');
-        document.getElementsByClassName('thumb')[active].classList.add('active');
-    } else if(active < items.length) {
-        --active
-        document.querySelector('.item.active').classList.remove('active');
-        document.getElementsByClassName('item')[active].classList.add('active');
-
-        document.querySelector('.thumb.active').classList.remove('active');
-        document.getElementsByClassName('thumb')[active].classList.add('active');
-    } 
-});
-
-const next = document.querySelector('.next');
-next.addEventListener('click', function() {
-    if(active < items.length - 1) {
-        ++active
-        document.querySelector('.item.active').classList.remove('active');
-        document.getElementsByClassName('item')[active].classList.add('active');
-
-        document.querySelector('.thumb.active').classList.remove('active');
-        document.getElementsByClassName('thumb')[active].classList.add('active');
-    } else if(active == items.length - 1) { 
-        active = 0;
-        document.querySelector('.item.active').classList.remove('active');
-        document.getElementsByClassName('item')[active].classList.add('active');
-
-        document.querySelector('.thumb.active').classList.remove('active');
-        document.getElementsByClassName('thumb')[active].classList.add('active');
-    }
-});*/
