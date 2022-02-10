@@ -30,6 +30,7 @@ const app = new Vue (
                 }
             ],
             active: 0,
+
         },
         methods: {
             prevSlide: function () {
@@ -39,6 +40,7 @@ const app = new Vue (
                     this.active--
                 }
             },
+
             nextSlide: function () {
 
                 if (this.active == this.items.length) {
@@ -46,10 +48,25 @@ const app = new Vue (
                 } else {
                     this.active++
                 }
-            }
+            },
+
+            scrollaAuto: function () {
+                alert('this is the scrollaAuto')
+                setTimeout(this.nextSlide (), 3000)
+            },
+
+
         }
     }
-)
+);
+
+
+
+
+
+
+
+
 
 
 
