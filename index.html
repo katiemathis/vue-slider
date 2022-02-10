@@ -10,7 +10,7 @@
 <body>
    <div class="container" id="app">
 
-        <div class="items">
+        <div class="items" @mouseover="stop" @mouseleave="loop">
             <div class="item">
                 <img :src="items[active].url" alt="">
                 <h3 class="name">{{items[active].name}}</h3>
@@ -23,7 +23,7 @@
             <div class="next" @click="nextSlide"></div>
 
 
-            <div class="thumb" v-for="item in items">
+            <div class="thumb" :class="index==active?'active':''" v-for="(item, index) in items" @click="stop">
                 <img :src="item.url" alt="">
             </div>
 

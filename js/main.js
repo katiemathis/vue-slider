@@ -50,6 +50,9 @@ const app = new Vue (
             },
            loop () {
                 this.clock = setInterval(this.nextSlide, 2000)
+            },
+            stop () {
+                clearInterval(this.clock)
             }
         },
         mounted: function  () {
