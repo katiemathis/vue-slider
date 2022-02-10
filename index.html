@@ -18,12 +18,12 @@
             </div>
 
         </div>
-        <div class="thumbs">
+        <div class="thumbs" @mouseover="stop" @mouseleave="loop">
             <div class="prev" @click="prevSlide"></div>
             <div class="next" @click="nextSlide"></div>
 
 
-            <div class="thumb" :class="index==active?'active':''" v-for="(item, index) in items" @click="thumbClick">
+            <div class="thumb" :class="index==active?'active':''" v-for="(item, index) in items" @click="thumbClick(index)">
                 <img :src="item.url" alt="">
             </div>
 
