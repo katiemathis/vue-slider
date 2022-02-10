@@ -33,8 +33,7 @@ const app = new Vue (
         },
         methods: {
             prevSlide: function () {
-
-                if (active == 0) {
+                if (this.active == 0) {
                     this.active = this.items.length - 1;
                 } else {
                     this.active--
@@ -42,7 +41,7 @@ const app = new Vue (
             },
             nextSlide: function () {
 
-                if (active == this.items.length) {
+                if (this.active == this.items.length) {
                     this.active = 0
                 } else {
                     this.active++

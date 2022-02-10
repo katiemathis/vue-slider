@@ -15,11 +15,12 @@
                 <h3 class="name">{{items[active].name}}</h3>
                 <p class="text">{{items[active].text}}</p>
             </div>
+
         </div>
         <div class="thumbs">
-
             <div class="prev" @click="prevSlide"></div>
             <div class="next" @click="nextSlide"></div>
+
 
             <div class="thumb" v-for="item in items">
                 <img :src="item.url" alt="">
