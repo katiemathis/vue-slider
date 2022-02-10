@@ -51,14 +51,24 @@ const app = new Vue (
             },
 
             scrollaAuto: function () {
-                alert('this is the scrollaAuto')
-                setTimeout(this.nextSlide (), 3000)
+                setTimeout(function () {
+                    if (this.active == this.items.length) {
+                        this.active = 0
+                    } else {
+                        this.active++
+                    }
+                }, 3000)
+            },
+            mounted: function () {
+                this.scrollaAuto ()
             },
 
 
         }
     }
 );
+
+
 
 
 
