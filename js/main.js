@@ -60,7 +60,7 @@ const app = new Vue (
 
             }
         },
-        mounted: function  () {
+        beforeMount: function  () {
             this.loop ()
             
         },
